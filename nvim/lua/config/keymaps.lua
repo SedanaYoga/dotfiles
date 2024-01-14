@@ -1,57 +1,56 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
--- -- Escape Insert Mode
-local keymap = vim.keymap
-local opts = { noremap = true, silent = true }
+--
+-- This file is automatically loaded by lazyvim.config.init
+
+-- DO NOT USE THIS IN YOU OWN CONFIG!!
+-- use `vim.map` instead
+local map = vim.keymap.set
 
 -- Escape
-keymap.set("i", "jj", "<Esc>")
+map("i", "jj", "<Esc>")
 
 -- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+map("n", "dw", 'vb"_d')
 
 -- Persist yanked text
-keymap.set("v", "p", '"_dP')
+map("v", "p", '"_dP')
 
 -- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+map("n", "<C-a>", "gg<S-v>G")
 
 -- Stay in indent Mode
-keymap.set("v", "<", "<gv")
-keymap.set("v", ">", ">gv")
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
 -- Do not yank with x
-keymap.set("n", "x", '"_x')
-
--- Comment
-vim.api.nvim_set_keymap("n", "<leader>/", "gcc", {})
-vim.api.nvim_set_keymap("x", "<leader>/", "gc", {})
+map("n", "x", '"_x')
 
 -- No Highlights
-keymap.set("n", "<Leader>h", "<cmd>nohlsearch<CR>", { desc = "Remove Highlight" })
+map("n", "<Leader>h", "<cmd>nohlsearch<CR>", { desc = "Remove Highlight" })
 
 -- Move text up and down
-keymap.set("x", "J", ":move '>+1<CR>gv-gv")
-keymap.set("x", "K", ":move '<-2<CR>gv-gv")
+map("x", "J", ":move '>+1<CR>gv-gv")
+map("x", "K", ":move '<-2<CR>gv-gv")
 
 -- Yank line down and up
-keymap.set("n", "<Leader>j", "yypk<cr>", { desc = "Yank Line Down" })
-keymap.set("n", "<Leader>k", "yyPj<cr>", { desc = "Yank Line Up" })
-keymap.set("x", "<Leader>j", ":co '><CR>V'[=gv", { desc = "Yank Line Down" })
-keymap.set("x", "<Leader>k", ":co '<-1<CR>V'[=gv", { desc = "Yank Line Up" })
+map("n", "<Leader>j", "yypk<cr>", { desc = "Yank Line Down" })
+map("n", "<Leader>k", "yyPj<cr>", { desc = "Yank Line Up" })
+map("x", "<Leader>j", ":co '><CR>V'[=gv", { desc = "Yank Line Down" })
+map("x", "<Leader>k", ":co '<-1<CR>V'[=gv", { desc = "Yank Line Up" })
 
 -- Bufferline
-keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", opts)
-keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-keymap.set("n", "<Leader>;h", "<Cmd>BufferLineCloseLeft<CR>", opts)
-keymap.set("n", "<Leader>;l", "<Cmd>BufferLineCloseRight<CR>", opts)
-keymap.set("n", "<Leader>;p", "<Cmd>BufferLineTogglePin<CR>", opts)
-keymap.set("n", ";c", "<Cmd>bd<Cr>")
+map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
+map("n", "<Leader>;h", "<Cmd>BufferLineCloseLeft<CR>", {})
+map("n", "<Leader>;l", "<Cmd>BufferLineCloseRight<CR>", {})
+map("n", "<Leader>;p", "<Cmd>BufferLineTogglePin<CR>", {})
+map("n", ";c", "<Cmd>bd<Cr>")
 
 -- Telescope
-keymap.set("n", ";r", "<cmd>Telescope live_grep<cr>")
-keymap.set("n", ";f", function()
+map("n", ";r", "<cmd>Telescope live_grep<cr>")
+map("n", ";f", function()
   require("telescope.builtin").find_files({
     no_ignore = false,
     hidden = false,
@@ -59,6 +58,22 @@ keymap.set("n", ";f", function()
 end)
 
 -- Flutter Tools
-keymap.set("n", "<leader>wr", "<cmd>FlutterRun<CR>")
-keymap.set("n", "<leader>we", "<cmd>FlutterEmulators<CR>")
-keymap.set("n", "<leader>wt", "<cmd>FlutterRestart<CR>")
+map("n", "<leader>wr", "<cmd>FlutterRun<CR>")
+map("n", "<leader>we", "<cmd>FlutterEmulators<CR>")
+map("n", "<leader>wt", "<cmd>FlutterRestart<CR>")
+
+map("i", "<C-[>", function()
+  require("copilot.suggestion").prev()
+end)
+
+map("i", "<C-]>", function()
+  require("copilot.suggestion").next()
+end)
+
+map("i", "<M-l>", function()
+  require("copilot.suggestion").accept()
+end)
+
+map("i", "<C-]>", function()
+  require("copilot.suggestion").dismiss()
+end)
