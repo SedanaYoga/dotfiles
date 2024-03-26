@@ -38,6 +38,22 @@ return {
           -- to fully override the default_config, change the below
           -- filetypes = {}
         },
+        tsserver = {
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "/Users/sedanayoga/.config/nvim/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue" },
+              },
+            },
+          },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
+          },
+        },
       },
       setup = {
         tailwindcss = function(_, opts)
