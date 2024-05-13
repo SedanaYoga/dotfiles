@@ -1,10 +1,5 @@
 return {
   {
-    "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
-    config = true,
-  },
-  {
     "echasnovski/mini.comment",
     event = "VeryLazy",
     opts = {
