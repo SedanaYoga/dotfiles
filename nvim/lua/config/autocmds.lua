@@ -28,20 +28,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
--- Prevent autoformatting/duplicating after using snippet
-local luasnip = require("luasnip")
-local unlinkgrp = vim.api.nvim_create_augroup("UnlinkSnippetOnModeChange", { clear = true })
-vim.api.nvim_create_autocmd("ModeChanged", {
-  group = unlinkgrp,
-  pattern = { "s:n", "i:*" },
-  desc = "Forget the current snippet when leaving the insert mode",
-  callback = function(evt)
-    if luasnip.session and luasnip.session.current_nodes[evt.buf] and not luasnip.session.jump_active then
-      luasnip.unlink_current()
-    end
-  end,
-})
-
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "json", "jsonc" },

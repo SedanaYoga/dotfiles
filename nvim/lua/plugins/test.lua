@@ -2,7 +2,10 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
-      "marilari88/neotest-vitest",
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
       "thenbe/neotest-playwright",
     },
     config = function()
@@ -15,7 +18,6 @@ return {
               preset = "headed",
             },
           }),
-          require("neotest-vitest"),
         },
       })
     end,
