@@ -49,13 +49,8 @@ map("n", "<Leader>;p", "<Cmd>BufferLineTogglePin<CR>", {})
 map("n", ";c", "<Cmd>bd<Cr>")
 
 -- Telescope
-map("n", ";r", "<cmd>Telescope live_grep<cr>")
-map("n", ";f", function()
-  require("telescope.builtin").find_files({
-    no_ignore = false,
-    hidden = false,
-  })
-end)
+map("n", ";r", "<cmd>FzfLua live_grep<cr>")
+map("n", ";f", "<cmd>FzfLua files<cr>")
 
 -- Flutter Tools
 map("n", "<leader>wr", "<cmd>FlutterRun<CR>")

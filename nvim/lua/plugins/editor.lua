@@ -31,11 +31,28 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
+    "ibhagwan/fzf-lua",
+    opts = function(_, opts)
+      opts.fzf_opts = {}
+    end,
     keys = {
       { "<leader>/", false },
     },
   },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   keys = {
+  --     { "<leader>/", false },
+  --   },
+  --   -- opts = {
+  --   --   defaults = {
+  --   --     layout_strategy = "vertical",
+  --   --     layout_config = { prompt_position = "top" },
+  --   --     sorting_strategy = "ascending",
+  --   --     winblend = 0,
+  --   --   },
+  --   -- },
+  -- },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
