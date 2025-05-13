@@ -39,20 +39,6 @@ return {
       { "<leader>/", false },
     },
   },
-  -- {
-  --   "nvim-telescope/telescope.nvim",
-  --   keys = {
-  --     { "<leader>/", false },
-  --   },
-  --   -- opts = {
-  --   --   defaults = {
-  --   --     layout_strategy = "vertical",
-  --   --     layout_config = { prompt_position = "top" },
-  --   --     sorting_strategy = "ascending",
-  --   --     winblend = 0,
-  --   --   },
-  --   -- },
-  -- },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
