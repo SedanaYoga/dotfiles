@@ -16,6 +16,23 @@ return {
             },
           },
         },
+        tailwindcss = {
+          root_dir = function(fname)
+            local node_modules = vim.fs.find("node_modules", { path = fname, upward = true })[1]
+            local root = vim.fs.dirname(node_modules)
+            if not node_modules then
+              return nil
+            else
+              local tailwind_path = node_modules .. "/tailwindcss"
+
+              if vim.fn.isdirectory(tailwind_path) ~= 0 then
+                return root
+              else
+                return nil
+              end
+            end
+          end,
+        },
       },
 
       setup = {
