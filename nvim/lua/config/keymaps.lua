@@ -28,7 +28,7 @@ map("v", ">", ">gv")
 map("n", "x", '"_x')
 
 -- No Highlights
-map("n", "<Leader>h", "<cmd>nohlsearch<CR>", { desc = "Remove Highlight" })
+map("n", "<Leader>\\", "<cmd>nohlsearch<CR>", { desc = "Remove Highlight" })
 
 -- Move text up and down
 map("x", "J", ":move '>+1<CR>gv-gv")
