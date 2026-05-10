@@ -1,4 +1,6 @@
 local startupNeotree = vim.api.nvim_create_augroup("neotree", { clear = true })
+vim.env.NODE_OPTIONS = "--max-old-space-size=16384"
+
 vim.api.nvim_create_autocmd("UiEnter", {
   desc = "Open Neotree automatically",
   group = startupNeotree,
